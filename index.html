@@ -24,12 +24,12 @@
       const keyword = keywordInput.value;
       const message = messageInput.value;
 
-      if (message) {
-        // If a message is provided, add it to the presetMessages object
-        presetMessages[keyword] = message;
-      } else if (keyword in presetMessages) {
-        // If no message is provided, output the corresponding preset message
+      if (keyword in presetMessages) {
+        // If the keyword already exists, output the corresponding preset message
         alert(presetMessages[keyword]);
+      } else if (message) {
+        // If the keyword does not exist and a message is provided, add it to the presetMessages object
+        presetMessages[keyword] = message;
       } else {
         alert("Keyword not found. Please try again.");
       }
