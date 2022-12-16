@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Preset Message Tool</title>
+  </head>
+  <body>
+    <h1>Preset Message Tool</h1>
+    <form>
+      <label for="keyword">Keyword:</label><br>
+      <input type="text" id="keyword" name="keyword"><br>
+      <label for="message">Message:</label><br>
+      <input type="text" id="message" name="message"><br><br>
+      <button type="button" onclick="outputMessage()">Submit</button>
+    </form>
+  </body>
+  <script>
+    const presetMessages = {};
+
+    function outputMessage() {
+      // Get the keyword and message inputs from the form
+      const keywordInput = document.getElementById('keyword');
+      const messageInput = document.getElementById('message');
+
+      // Get the current values of the keyword and message inputs
+      const keyword = keywordInput.value;
+      const message = messageInput.value;
+
+      if (message) {
+        // If a message is provided, add it to the presetMessages object
+        presetMessages[keyword] = message;
+      } else if (keyword in presetMessages) {
+        // If no message is provided, output the corresponding preset message
+        alert(presetMessages[keyword]);
+      } else {
+        alert("Keyword not found. Please try again.");
+      }
+    }
+  </script>
+</html>
